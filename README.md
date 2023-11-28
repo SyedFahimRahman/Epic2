@@ -1,1 +1,3 @@
-# Epic2
+Members:
+Syed Fahim Rahman
+Dara Heaphy
