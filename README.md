@@ -1,3 +1,1 @@
-Members:
-Syed Fahim Rahman
-Dara Heaphy
+Members: Syed Fahim Rahman & Dara Heaphy
