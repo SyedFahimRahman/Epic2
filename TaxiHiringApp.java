@@ -17,16 +17,24 @@ public class TaxiHiringApp implements VehicleHiringTest {
 
     @Override
     public boolean testRemoveVehicle(String reg) {
-        return false;
+        return vehicles.remove(reg) != null;
     }
 
     @Override
     public Location testGetVehicleLoc(String reg) {
-        return null;
+        Vehicle vehicle = vehicles.get(reg);
+        return (vehicle != null) ? vehicle.getLocation() : null;
     }
 
     @Override
     public List<String> testGetVehiclesInRange(Location loc, int r) {
-        return null;
+        return vehicles.values().stream()
+                .filter(vehicle -> isWithinRange(vehicle.getLocation(), loc, r))
+                .map(Vehicle::getRegistrationNumber)
+                .collect(Collectors.toList());
+    }
+
+    private boolean isWithinRange(Location loc1, Location loc2, int r) {
+        return false;
     }
 }
