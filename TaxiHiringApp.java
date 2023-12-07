@@ -5,6 +5,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class TaxiHiringApp implements VehicleHiringTest {
+    private Map<String, Vehicle> vehicles = new HashMap<>();
+    public TaxiHiringApp() {
+        this.vehicles = new HashMap<>();
+    }
     @Override
     public boolean testAddToMap(String reg, Location loc) {
         return false;
@@ -12,6 +16,11 @@ public class TaxiHiringApp implements VehicleHiringTest {
 
     @Override
     public boolean testMoveVehicle(String reg, Location loc) {
+        Vehicle vehicle = vehicles.get(reg);
+        if (vehicle != null) {
+            vehicle.setLocation(loc);
+            return true;
+        }
         return false;
     }
 
