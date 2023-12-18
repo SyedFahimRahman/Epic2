@@ -45,6 +45,6 @@ jobs:
 
       - name: Push Docker Image to Docker Hub
         run: |
-          echo ${{ secrets.dckr_pat_-cmedN00bk7vOO08t7KNXzZ1Mb8 }} | docker login -u ${{ secrets.23376066 }} --password-dckr_pat_-cmedN00bk7vOO08t7KNXzZ1Mb8
-          docker tag taxi-app-image ${{ secrets.23376066 }}/taxi-app:latest
-          docker push ${{ secrets.23376066 }}/taxi-app:latest
+          echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password
+          docker tag taxi-app-image ${{ secrets.DOCKERHUB_USERNAME }}/taxi-app:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/taxi-app:latest
