@@ -28,5 +28,5 @@ jobs:
 
       - name: Push Docker image to Docker Hub (or your container registry)
         run: |
-          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-dckr_pat_-cmedN00bk7vOO08t7KNXzZ1Mb8
           docker push your-image-name
