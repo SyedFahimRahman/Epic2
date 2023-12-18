@@ -10,8 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          # Specify the desired Node.js version
+          node-version: '16'
+
 
       - name: Set up JDK 17
         uses: actions/setup-java@v2
