@@ -57,7 +57,7 @@ public class TaxiMap {
         }
     }
 
-    public Location moveVehicle(String reg, Location loc) {
+    public void moveVehicle(String reg, Location loc) {
         Scanner sc = new Scanner(System.in);
         removeTaxiFromMap(reg);
         System.out.println("Enter the X coordinate you want the taxi to move to: ");
@@ -66,11 +66,10 @@ public class TaxiMap {
         int y = sc.nextInt();
         Taxi taxi = TaxiDetails.getTaxi(reg);
         if (isValidIndex(array, x, y)) {
-            array[x][y].addTaxi(taxi);
+            array[y][x].addTaxi(taxi);
         } else {
             System.out.println("Invalid index. Cannot move element.");
         }
-        return null;
     }
 
 
@@ -84,6 +83,7 @@ public class TaxiMap {
         int x = sc.nextInt();
         System.out.println("Enter Y coordinate of cell you wish to view the contents of: ");
         int y = sc.nextInt();
+
 
         if (array[y][x] != null) {
             System.out.println("Contents at coordinates (" + x + ", " + y + "): \n" + array[y][x].toString());

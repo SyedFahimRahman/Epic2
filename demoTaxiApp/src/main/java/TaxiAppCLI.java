@@ -17,7 +17,7 @@ public class TaxiAppCLI {
             System.out.println("7. Add Dummy Data");
             System.out.println("8. Exit");
             System.out.print("Enter your choice: ");
-            
+
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
@@ -44,7 +44,7 @@ public class TaxiAppCLI {
                     String getLocationRegNumber = scanner.nextLine();
                     Location vehicleLocation = taxiApp.getVehicleLoc(getLocationRegNumber);
                     if (vehicleLocation != null) {
-                        System.out.println("Vehicle location: " + vehicleLocation.getX() + ", " + vehicleLocation.getY());
+                        System.out.println("Vehicle location: " + vehicleLocation.getY() + ", " + vehicleLocation.getX());
                     } else {
                         System.out.println("Vehicle not found or not on the map.");
                     }
@@ -56,8 +56,7 @@ public class TaxiAppCLI {
                     System.out.print("Enter y coordinate for range center: ");
                     int rangeY = scanner.nextInt();
                     Location rangeCenter = new Location(rangeX, rangeY);
-                    System.out.print("Enter range radius: ");
-                    int rangeRadius = scanner.nextInt();
+                    int rangeRadius = 5;
                     List<String> vehiclesInRange = taxiApp.getVehiclesInRange(rangeCenter, rangeRadius);
                     System.out.println("Vehicles in range: " + vehiclesInRange);
                     break;
