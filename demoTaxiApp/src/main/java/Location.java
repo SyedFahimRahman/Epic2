@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Location {
     private int x;
     private int y;
@@ -13,5 +15,18 @@ public class Location {
 
     public int getY() {
         return y;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Location location = (Location) obj;
+        return x == location.x && y == location.y;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
     }
 }

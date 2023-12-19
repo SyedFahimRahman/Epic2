@@ -1,17 +1,25 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class TaxiHiringApp {
+public class TaxiHiringAppTests implements VehicleHiringTest{
+    private Map<String, Vehicle> vehicles = new HashMap<>();
 
-    TaxiMap map = new TaxiMap();
+    private final TaxiMap map;
 
-    public void addToMap(String reg, Location loc) {
+    public TaxiHiringAppTests() {
+        this.vehicles = new HashMap<>();
+        this.map = new TaxiMap();
+    }
+
+
+
+    @Override
+    public boolean testAddToMap(String reg, Location loc) {
         System.out.println();
         if (TaxiDetails.doesTaxiExist(reg)) {
             // Check if the taxi is already on the map
             if (map.isTaxiOnMap(reg)) {
                 System.out.println("Error: Taxi already on map.");
-                return;
+                return false;
             }
             int x = loc.getX();
             int y = loc.getY();
@@ -22,7 +30,6 @@ public class TaxiHiringApp {
                     if (y >= 0 && y < map.getRows()) {
                         Taxi taxi = TaxiDetails.getTaxi(reg);
                         map.addTaxiToMap(y, x, taxi);
-                        map.printMap();
                         isValid = true;
                     } else {
                         System.out.println("Invalid Y Coordinates, please try again.");
@@ -31,15 +38,18 @@ public class TaxiHiringApp {
                     System.out.println("Invalid X coordinate, please try again.");
                 }
             }
+            return isValid;
         } else {
             System.out.println("Error: Taxi does not exist.");
+            return false;
         }
     }
 
 
-    public void moveVehicle(String reg, Location loc) {
+    @Override
+    public boolean testMoveVehicle(String reg, Location loc) {
         if (!TaxiDetails.doesTaxiExist(reg)) {
-            return;
+            return false;
         }
 
         int x = loc.getX();
@@ -52,8 +62,13 @@ public class TaxiHiringApp {
                 if (y >= 0 && y <= map.getRows()) {
                     TaxiDetails.getTaxi(reg);
                     System.out.println();
-                    map.moveVehicle(reg, loc);
-                    map.printMap();
+                    map.removeTaxiFromMap(reg);
+                    Taxi taxi = TaxiDetails.getTaxi(reg);
+                    if (TaxiMap.isValidIndex(TaxiMap.array, x, y)) {
+                        TaxiMap.array[x][y].addTaxi(taxi);
+                    } else {
+                        System.out.println("Invalid index. Cannot move element.");
+                    }
                     System.out.println();
 
                     isValid = true;
@@ -64,19 +79,23 @@ public class TaxiHiringApp {
                 System.out.println("Invalid Y coordinate, please try again: ");
             }
         }
+        return isValid;
     }
 
-    public void removeVehicle(String reg) {
+    @Override
+    public boolean testRemoveVehicle(String reg) {
         map.removeTaxiFromMap(reg);
         map.printMap();
+        return true;
     }
 
-    public Location getVehicleLoc(String reg) {
+    @Override
+    public Location testGetVehicleLoc(String reg) {
         // Check if the taxi exists
         if (TaxiDetails.doesTaxiExist(reg)) {
             for (int i = 0; i < map.getRows(); i++) {
                 for (int j = 0; j < map.getCols(); j++) {
-                    MapCell currentCell = map.getArray()[i][j];
+                    MapCell currentCell = map.getArray()[j][i];
                     if (currentCell.containsTaxi(reg)) {
                         return new Location(i, j);
                     }
@@ -90,24 +109,26 @@ public class TaxiHiringApp {
         }
     }
 
-    public List<String> getVehiclesInRange(Location loc, int r) {
+    @Override
+    public List<String> testGetVehiclesInRange(Location loc, int r) {
         List<String> vehiclesInRange = new ArrayList<>();
 
         int centerX = loc.getX();
         int centerY = loc.getY();
 
-        for(int i = Math.max(0, centerX - r); i <= Math.min(map.getCols() - 1, centerX + r); i++){
-            for(int j = Math.max(0, centerY - r); j <= Math.min(map.getRows() - 1, centerY + r); j++) {
-                if(map.isWithinRange(new Location(i, j), loc, r)) {
-                    for(Taxi taxi : map.getArray()[j][i].getTaxis()) {
-                        vehiclesInRange.add(taxi.getRegNumber());
+        for (int i = Math.max(0, centerX - r); i <= Math.min(map.getCols() - 1, centerX + r); i++) {
+            for (int j = Math.max(0, centerY - r); j <= Math.min(map.getRows() - 1, centerY + r); j++) {
+                if (map.isWithinRange(new Location(i, j), loc, r)) {
+                    for (Taxi taxi : map.getArray()[j][i].getTaxis()) {
+                        String regNumber = taxi.getRegNumber();
+                        if (!vehiclesInRange.contains(regNumber)) {
+                            System.out.println("Taxi within range: " + regNumber);
+                            vehiclesInRange.add(regNumber);
+                        }
                     }
                 }
             }
         }
         return vehiclesInRange;
-    }
-    public TaxiMap getMap() {
-        return this.map;
     }
 }

@@ -3,7 +3,7 @@ public class DummyData {
     static TaxiMap map = new TaxiMap();
 
     public static void addDummyDataToMap() {
-        map.addTaxiToMap(5, 6, new Taxi("10000", "Freddy", "regular"));
+
         map.addTaxiToMap(8, 7, new Taxi("20000", "Mark", "XL"));
         map.addTaxiToMap(2, 3, new Taxi("30000", "Danny", "regular"));
         map.addTaxiToMap(6, 4, new Taxi("40000", "Harry", "XL"));

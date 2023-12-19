@@ -1,17 +1,17 @@
 public class Vehicle {
-    private String registrationNumber;
-    private Location location;
+    private static String registrationNumber;
+    private static Location location;
 
     public Vehicle(String registrationNumber, Location location) {
         this.registrationNumber = registrationNumber;
         this.location = location;
     }
 
-    public Location getLocation() {
+    public static Location getLocation() {
         return location;
     }
 
-    public String getRegistrationNumber() {
+    public static String getRegistrationNumber() {
         return registrationNumber;
     }
 

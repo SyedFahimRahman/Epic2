@@ -57,7 +57,7 @@ public class TaxiMap {
         }
     }
 
-    public Location moveTaxi(String reg, Location loc) {
+    public Location moveVehicle(String reg, Location loc) {
         Scanner sc = new Scanner(System.in);
         removeTaxiFromMap(reg);
         System.out.println("Enter the X coordinate you want the taxi to move to: ");
@@ -93,7 +93,7 @@ public class TaxiMap {
     }
 
     public boolean isWithinRange(Location loc1, Location loc2, int r) {
-        double distance = Math.sqrt(Math.pow(loc2.getX() - loc1.getX(), 2) + Math.pow(loc2.getY() - loc1.getY(), 2 ));
+        double distance = Math.sqrt(Math.pow(loc2.getX() - loc1.getX(), 2) + Math.pow(loc2.getY() - loc1.getY(), 2));
         return distance <= r;
     }
 
@@ -104,15 +104,7 @@ public class TaxiMap {
         return rows;
     }
 
-    public void setRows(int rows) {
-        this.rows = rows;
-    }
-
     public int getCols() {
         return cols;
-    }
-
-    public void setCols(int cols) {
-        this.cols = cols;
     }
 }

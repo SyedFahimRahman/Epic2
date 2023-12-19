@@ -1,7 +1,8 @@
 import java.util.Objects;
+import java.util.Iterator;
 
 // creation of my own array list
-public class DaraList<T> {
+public class DaraList<T> implements Iterable<T>{
 
     private T[] items;
     private int size;
@@ -73,5 +74,22 @@ public class DaraList<T> {
             }
         }
         return result;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < size && items[currentIndex] != null;
+            }
+
+            @Override
+            public T next() {
+                return items[currentIndex++];
+            }
+        };
     }
 }

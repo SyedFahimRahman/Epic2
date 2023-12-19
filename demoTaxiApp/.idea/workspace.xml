@@ -41,8 +41,8 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Console Colors&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.TaxiHiringAppTest">
-    <configuration name="All in demoTaxiApp (3)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TaxiHiringAppTestsTest">
+    <configuration name="All in demoTaxiApp (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demoTaxiApp" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -50,46 +50,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in demoTaxiApp (4)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demoTaxiApp" />
+    <configuration name="TaxiHiringAppTestsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GitHubActionsQuickStart" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in demoTaxiApp (5)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demoTaxiApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in demoTaxiApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demoTaxiApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TaxiHiringAppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demoTaxiApp" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TaxiHiringAppTest" />
+      <option name="MAIN_CLASS_NAME" value="TaxiHiringAppTestsTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in GitHubActionsQuickStart" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GitHubActionsQuickStart" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in demoTaxiApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demoTaxiApp" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test in demoTaxiApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demoTaxiApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TaxiHiringAppTest" />
-        <item itemvalue="JUnit.All in demoTaxiApp (4)" />
-        <item itemvalue="JUnit.All in demoTaxiApp" />
-        <item itemvalue="JUnit.All in demoTaxiApp (5)" />
-        <item itemvalue="JUnit.All in demoTaxiApp (3)" />
+        <item itemvalue="JUnit.TaxiHiringAppTestsTest" />
+        <item itemvalue="JUnit.java in GitHubActionsQuickStart" />
+        <item itemvalue="JUnit.java in demoTaxiApp" />
+        <item itemvalue="JUnit.test in demoTaxiApp" />
+        <item itemvalue="JUnit.All in demoTaxiApp (2)" />
       </list>
     </recent_temporary>
   </component>
