@@ -2,61 +2,41 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TaxiAppCLI {
-    public static void main(String[] args) {
+    public static void taxiAppCLI() {
         TaxiHiringApp taxiApp = new TaxiHiringApp();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\n1. Add Vehicle");
+            System.out.println("\n0. Register Vehicle");
+            System.out.println("1. Add Vehicle To Map");
             System.out.println("2. Move Vehicle");
             System.out.println("3. Remove Vehicle");
             System.out.println("4. Get Vehicle Location");
             System.out.println("5. Get Vehicles in Range");
-            System.out.println("6. Exit");
+            System.out.println("6. View Map Cell");
+            System.out.println("7. Book a Taxi");
+            System.out.println("8. Add Dummy Data");
+            System.out.println("9. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
 
             switch (choice) {
+                case 0:
+                    TaxiDetails.registerVehicle();
+                    break;
+
                 case 1:
-                    System.out.print("Enter registration number: ");
-                    String regNumber = scanner.nextLine();
-                    System.out.print("Enter x coordinate: ");
-                    int x = scanner.nextInt();
-                    System.out.print("Enter y coordinate: ");
-                    int y = scanner.nextInt();
-                    Location location = new Location(x, y);
-                    if (taxiApp.testAddToMap(regNumber, location)) {
-                        System.out.println("Vehicle added successfully!");
-                    } else {
-                        System.out.println("Failed to add vehicle. Registration number already exists.");
-                    }
+                    taxiApp.testAddToMap(TaxiDetails.regNumber(), TaxiDetails.taxiLocation());
                     break;
 
                 case 2:
-                    System.out.print("Enter registration number: ");
-                    String moveRegNumber = scanner.nextLine();
-                    System.out.print("Enter new x coordinate: ");
-                    int newX = scanner.nextInt();
-                    System.out.print("Enter new y coordinate: ");
-                    int newY = scanner.nextInt();
-                    Location newLocation = new Location(newX, newY);
-                    if (taxiApp.testMoveVehicle(moveRegNumber, newLocation)) {
-                        System.out.println("Vehicle moved successfully!");
-                    } else {
-                        System.out.println("Failed to move vehicle. Vehicle not found.");
-                    }
+                    taxiApp.testMoveVehicle(TaxiDetails.regNumber(), TaxiDetails.taxiLocation());
                     break;
 
                 case 3:
-                    System.out.print("Enter registration number to remove: ");
-                    String removeRegNumber = scanner.nextLine();
-                    if (taxiApp.testRemoveVehicle(removeRegNumber)) {
-                        System.out.println("Vehicle removed successfully!");
-                    } else {
-                        System.out.println("Failed to remove vehicle. Vehicle not found.");
-                    }
+                    taxiApp.testRemoveVehicle(TaxiDetails.regNumber());
                     break;
 
                 case 4:
@@ -83,6 +63,17 @@ public class TaxiAppCLI {
                     break;
 
                 case 6:
+                    TaxiMap.printCellContents();
+                    break;
+
+                case 7:
+                    break;
+
+                case 8:
+                    DummyData.addDummyDataToMap();
+                    break;
+
+                case 9:
                     System.out.println("Exiting the Taxi Hiring App. Goodbye!");
                     System.exit(0);
 
