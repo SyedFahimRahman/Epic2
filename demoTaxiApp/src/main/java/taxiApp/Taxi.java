@@ -3,24 +3,27 @@ package taxiApp;
 import java.util.Objects;
 
 public class Taxi {
+
+    //Creating private class variables.
     private String driverName;
     private String taxiSize;
     public String regNumber;
-    private double rating;      // Rating of the taxi driver
 
+    //Creating taxi constructor for Taxi object to store a regNumber, driverName and taxiSize.
     public Taxi(String regNumber, String driverName, String taxiSize) {
         this.driverName = driverName;
         this.taxiSize = taxiSize;
         this.regNumber = regNumber;
-        this.rating = 0.0;
     }
 
+    //Creating another constructor so a Taxi can be located using only it's specific regNumber.
     public Taxi(String regNumber) {
         this.driverName = null;
         this.taxiSize = null;
         this.regNumber = regNumber;
     }
 
+    //Getters and setters for the private class variables.
     public String getDriverName() {
         return driverName;
     }
@@ -41,21 +44,13 @@ public class Taxi {
         return regNumber;
     }
 
-    // Getter method to retrieve the rating of the taxi driver
-    public double getRating() {
-        return rating;
-    }
-
-    // Setter method to set the rating of the taxi driver
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
+    //Overriding the Taxi classes toString method.
     @Override
     public String toString() {
         return "Taxi{regNumber='" + regNumber + "', driverName='" + driverName + "', taxiSize=" + taxiSize + "}";
     }
 
+    //Overriding the Taxi classes .equals function.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -64,6 +59,7 @@ public class Taxi {
         return Objects.equals(regNumber, taxi.regNumber);
     }
 
+    //Overriding the Taxi classes hashCode function.
     @Override
     public int hashCode() {
         return Objects.hash(regNumber);

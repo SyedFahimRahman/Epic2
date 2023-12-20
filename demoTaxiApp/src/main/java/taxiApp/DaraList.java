@@ -6,15 +6,17 @@ import java.util.Iterator;
 // creation of my own array list
 public class DaraList<T> implements Iterable<T>{
 
+    //Creation of private variables.
     private T[] items;
     private int size;
 
+    //Constructor for DaraList class.
     public DaraList() {
         items = (T[]) new Object[10];
         size = 0;
     }
 
-
+    //Creation of the add function for my self-implemented array list.
     public void add(T item) {
         if(size == items.length) {
             increaseCapacity();
@@ -31,6 +33,7 @@ public class DaraList<T> implements Iterable<T>{
         // setting global variable to the new array.taxiApp.MapCell
         items = newArray;
     }
+    //Method to remove an item from DaraList.
     public void remove(T item) {
         for (int i = 0; i < size; i++) {
             if (Objects.equals(item, items[i])) {
@@ -46,10 +49,12 @@ public class DaraList<T> implements Iterable<T>{
         }
     }
 
+    //Creation of toArray() method for my ArrayList.
     public Object[] toArray() {
         return items;
     }
 
+    //Creation of boolean contains() to check whether my array list contains a taxi value.
     public boolean contains(T element) {
         for (int i = 0; i < size; i++) {
             if (element == null ? items[i] == null : element.equals(items[i])) {
@@ -66,6 +71,7 @@ public class DaraList<T> implements Iterable<T>{
         return items[i];
     }
 
+    //Override of the DaraList classes toString() method.
     @Override
     public String toString() {
         String result = "";
@@ -78,17 +84,20 @@ public class DaraList<T> implements Iterable<T>{
         return result;
     }
 
+    //Override of the DaraList classes iterator() method.
     @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
             private int currentIndex = 0;
 
-            @Override
+    //Override of the DaraList classes hasNext() function.
+    @Override
             public boolean hasNext() {
                 return currentIndex < size && items[currentIndex] != null;
             }
 
-            @Override
+    //Override of the DaraList classes next() function.
+    @Override
             public T next() {
                 return items[currentIndex++];
             }

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
+
+//Testing class where all 5 of the core functions are tested successfully.
 class TaxiHiringAppTestsTest {
 
     TaxiHiringAppTests tests = new TaxiHiringAppTests();

@@ -2,6 +2,8 @@ package taxiApp;
 
 import java.util.*;
 
+//Class used to test all methods from the TaxiHiringApp class to
+// ensure the methods work as intended before implementing them in our code.
 public class TaxiHiringAppTests implements VehicleHiringTest{
     private Map<String, Vehicle> vehicles = new HashMap<>();
 
@@ -13,7 +15,8 @@ public class TaxiHiringAppTests implements VehicleHiringTest{
     }
 
 
-
+    //Each method from the VehicleHiringTest interface is annotated with @Override so the interface
+    // can be implemented in our testing process.
     @Override
     public boolean testAddToMap(String reg, Location loc) {
         System.out.println();
@@ -133,6 +136,7 @@ public class TaxiHiringAppTests implements VehicleHiringTest{
         }
         return vehiclesInRange;
     }
+    //Getter method for our taxi map.
     public TaxiMap getMap() {
         return this.map;
     }

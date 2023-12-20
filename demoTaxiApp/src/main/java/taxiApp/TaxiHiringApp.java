@@ -7,12 +7,13 @@ public class TaxiHiringApp {
 
     TaxiMap map = new TaxiMap();
 
+    //Method used to add a registered taxi to the map.
     public void addToMap(String reg, Location loc) {
         System.out.println();
         if (TaxiDetails.doesTaxiExist(reg)) {
             // Check if the taxi is already on the map
             if (map.isTaxiOnMap(reg)) {
-                System.out.println("Error: taxiApp.Taxi already on map.");
+                System.out.println("Error: Taxi already on map.");
                 return;
             }
             int x = loc.getX();
@@ -34,11 +35,11 @@ public class TaxiHiringApp {
                 }
             }
         } else {
-            System.out.println("Error: taxiApp.Taxi does not exist.");
+            System.out.println("Error: Taxi does not exist.");
         }
     }
 
-
+    //Method used to move a registered vehicle given that it already exists on the map.
     public void moveVehicle(String reg, Location loc) {
         if (!TaxiDetails.doesTaxiExist(reg)) {
             return;
@@ -68,11 +69,14 @@ public class TaxiHiringApp {
         }
     }
 
+    //Method to remove a vehicle from the map by identifying the vehicle using its reg number and using the remove function from the map class.
     public void removeVehicle(String reg) {
         map.removeTaxiFromMap(reg);
         map.printMap();
     }
 
+    //Method to get the vehicle's location by checking if the vehicle exists and
+    // then looping through each map cell to look for the matching reg number.
     public Location getVehicleLoc(String reg) {
         // Check if the taxi exists
         if (TaxiDetails.doesTaxiExist(reg)) {
@@ -84,14 +88,15 @@ public class TaxiHiringApp {
                     }
                 }
             }
-            System.out.println("Error: taxiApp.Taxi not found on the map.");
+            System.out.println("Error: Taxi not found on the map.");
             return null;
         } else {
-            System.out.println("Error: taxiApp.Taxi does not exist.");
+            System.out.println("Error: Taxi does not exist.");
             return null;
         }
     }
 
+    //Method to get all vehicles in a range of distance 5 from a given set of x,y coordinates.
     public List<String> getVehiclesInRange(Location loc, int r) {
         List<String> vehiclesInRange = new ArrayList<>();
 
