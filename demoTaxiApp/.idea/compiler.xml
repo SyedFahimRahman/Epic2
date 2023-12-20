@@ -9,8 +9,5 @@
         <module name="GitHubActionsQuickStart" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="demoTaxiApp" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
